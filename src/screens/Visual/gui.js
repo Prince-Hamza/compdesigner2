@@ -1,15 +1,13 @@
 
 
-export const Gui = (pane, ghostpane) => {
-  
+export const Gui = (pane, ghostpane, setBounds) => {
+
   var minWidth = 60;
   var minHeight = 40;
 
-  // Thresholds
   var FULLSCREEN_MARGINS = -10;
   var MARGINS = 4;
 
-  // End of what's configurable.
   var clicked = null;
   var onRightEdge, onBottomEdge, onLeftEdge, onTopEdge;
 
@@ -21,25 +19,16 @@ export const Gui = (pane, ghostpane) => {
 
   var redraw = false;
 
-  // var pane = document.getElementById('pane');
-  // var ghostpane = document.getElementById('ghostpane');
-
-  function setBounds(element, x, y, w, h) {
-    element.style.left = x + 'px';
-    element.style.top = y + 'px';
-    element.style.width = w + 'px';
-    element.style.height = h + 'px';
-  }
+  // function setBounds(element, x, y, w, h) {
+  //   element.style.left = x + 'px';
+  //   element.style.top = y + 'px';
+  //   element.style.width = w + 'px';
+  //   element.style.height = h + 'px';
+  // }
 
   function hintHide() {
     setBounds(ghostpane, b.left, b.top, b.width, b.height);
     ghostpane.style.opacity = 0;
-
-    // var b = ghostpane.getBoundingClientRect();
-    // ghostpane.style.top = b.top + b.height / 2;
-    // ghostpane.style.left = b.left + b.width / 2;
-    // ghostpane.style.width = 0;
-    // ghostpane.style.height = 0;
   }
 
 
@@ -203,7 +192,7 @@ export const Gui = (pane, ghostpane) => {
     // This code executes when mouse moves without clicking
 
     // style cursor
-    if (onRightEdge && onBottomEdge || onLeftEdge && onTopEdge) {
+    if ((onRightEdge && onBottomEdge) || (onLeftEdge && onTopEdge)) {
       pane.style.cursor = 'nwse-resize';
     } else if (onRightEdge && onTopEdge || onBottomEdge && onLeftEdge) {
       pane.style.cursor = 'nesw-resize';

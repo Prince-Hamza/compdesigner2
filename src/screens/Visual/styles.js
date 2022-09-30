@@ -24,10 +24,10 @@ export const Styles = ({
         margin: '0',
         padding: '0',
         zIndex: '98',
-        webkitTransition: 'all 0.25s ease -in -out',
-        mozTransition: 'all 0.25s ease -in -out',
-        msTransition: 'all 0.25s ease -in -out',
-        oTransition: 'all 0.25s ease -in -out',
+        WebkitTransition: 'all 0.25s ease -in -out',
+        MozTransition: 'all 0.25s ease -in -out',
+        MsTransition: 'all 0.25s ease -in -out',
+        OTransition: 'all 0.25s ease -in -out',
         transition: 'all 0.25s ease -in -out'
     },
     title: {
