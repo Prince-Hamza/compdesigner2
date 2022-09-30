@@ -3,10 +3,10 @@ import { Col } from 'react-bootstrap'
 import { Styles } from './styles'
 import { Gui } from './gui'
 
-export default function Visual({ children, index, itemInfo, setItem }) {
+export default function Visual({ children, index, item, setItem }) {
 
     const setBounds = (e, left, top, width, height) => {
-        setItem({ top: top, left: left, width: width, height: height })
+        setItem({ top: top, left: left, width: width, height: height }, index)
     }
 
     const init = () => {
@@ -22,11 +22,11 @@ export default function Visual({ children, index, itemInfo, setItem }) {
 
     return (
         <Col lg={12}>
-            <div id={`pane_${index}`} style={{...Styles.pane, ...itemInfo}}>
+            <div id={`pane_${index}`} style={{...Styles.pane, ...item}}>
                 <div style={Styles.title} id="title">  </div>
                 {children}
             </div>
-            <div style={{...Styles.ghostPane, ...itemInfo}} id={`ghostpane_${index}`}></div>
+            <div style={{...Styles.ghostPane, ...item}} id={`ghostpane_${index}`}></div>
         </Col>
     )
 }
