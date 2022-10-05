@@ -36,8 +36,8 @@ export const Styles = ({
         color: 'white',
         fontSize: '24px',
         width:'60px',
-        height: '20px',
-        borderBottomRightRadius:'50px',
+        height: '15px',
+        borderTopRightRadius:'25px',
         textAlign: 'center',
         cursor: 'move'
     }
