@@ -15,6 +15,7 @@ export default function Main() {
             left: '50px',
             width: '1200px',
             height: '500px',
+            styles: {},
             children: [
                 {
                     name: 'Bt',
@@ -23,6 +24,7 @@ export default function Main() {
                     left: '50px',
                     width: '10px',
                     height: '50px',
+                    styles: {},
                     children: [
                         {
                             name: 'Col',
@@ -31,6 +33,9 @@ export default function Main() {
                             left: '50px',
                             width: '1200px',
                             height: '500px',
+                            styles: {
+                                width: '50px'
+                            }
                         },
                         {
                             name: 'Col',
@@ -39,6 +44,9 @@ export default function Main() {
                             left: '50px',
                             width: '1200px',
                             height: '500px',
+                            styles: {
+                                width: '50px'
+                            }
                         }
                     ]
                 },
@@ -51,6 +59,7 @@ export default function Main() {
                     left: '50px',
                     width: '10px',
                     height: '50px',
+                    styles: {},
                     children: [
                         {
                             name: 'Col',
@@ -59,6 +68,9 @@ export default function Main() {
                             left: '50px',
                             width: '1200px',
                             height: '500px',
+                            styles: {
+                                width: '50px'
+                            }
                         },
                         {
                             name: 'Col',
@@ -67,6 +79,9 @@ export default function Main() {
                             left: '50px',
                             width: '1200px',
                             height: '500px',
+                            styles: {
+                                width: '50px'
+                            }
                         }
                     ]
                 }
@@ -89,17 +104,17 @@ export default function Main() {
             {AppInfo.map((Item, index) => {
                 return (
                     <Visual key={Math.random()} index={index} item={Item} setItem={setInfo}>
-                        <Item.Core>
+                        <Item.Core styles={Item.styles}>
                             {Item.children && Item.children.map((NestedItem) => {
                                 return (
-                                    <NestedItem.Core>
+                                    <NestedItem.Core styles={NestedItem.styles}>
                                         {NestedItem.children && NestedItem.children.map((NestedItem2) => {
                                             return (
-                                                <NestedItem2.Core>
+                                                <NestedItem2.Core styles={NestedItem2.styles}>
                                                     {NestedItem2 && NestedItem2.children && NestedItem2.children.map((NestedItem3) => {
                                                         return (
-                                                            <NestedItem3.Core>
-                                                                
+                                                            <NestedItem3.Core styles={NestedItem3.styles}>
+
                                                             </NestedItem3.Core>
                                                         )
                                                     })}
