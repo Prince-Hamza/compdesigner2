@@ -9,11 +9,10 @@ export const Styles = ({
         margin: '0',
         padding: '0',
         zIndex: '99',
-        border: '1px solid limegreen',
+        border: '1px solid #222',
         background: '#fefefe'
     },
     ghostPane: {
-
         background: '#999',
         opacity: '0.2',
         width: '45%',
@@ -35,9 +34,9 @@ export const Styles = ({
         background: 'limegreen',
         color: 'white',
         fontSize: '24px',
-        width:'60px',
-        height: '15px',
-        borderTopRightRadius:'25px',
+        width: '25px',
+        height: '25px',
+        borderTopRightRadius: '25px',
         textAlign: 'center',
         cursor: 'move'
     }

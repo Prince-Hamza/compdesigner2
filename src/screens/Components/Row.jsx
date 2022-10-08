@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Row({ children, styles }) {
+export default function Row({ children, styles, onClick }) {
     return (
-        <div style={{ ...Styles.Item, ...Styles.Col, ...styles }}>
+        <div style={{ ...Styles.Item, ...Styles.Col, ...styles }} onClick={() => { onClick() }}>
             {children}
         </div>
     )

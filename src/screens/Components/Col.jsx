@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Column({ children, styles }) {
+export default function Column({ children, styles,onClick }) {
 
     return (
-        <div style={{ ...Styles.Item, ...Styles.Col, ...styles }}>
+        <div style={{ ...Styles.Item, ...Styles.Col, ...styles }} onClick={() => { onClick() }}>
             {children}
         </div>
     )

@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Button({ styles }) {
+export default function Button({ styles, onClick }) {
     return (
-        <button style={{ ...Styles.Button, ...Styles.Item, ...styles }}>
+        <button style={{ ...Styles.Button, ...Styles.Item, ...styles }} onClick={() => { onClick() }}>
             Button
         </button>
     )
