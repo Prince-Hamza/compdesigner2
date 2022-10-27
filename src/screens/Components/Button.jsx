@@ -15,7 +15,7 @@ const Styles = ({
         zIndex: '-1'
     },
     Button: {
-        backgroundColor: 'white',
+        backgroundColor: '#222',
         border: 'solid 1px'
     }
 })

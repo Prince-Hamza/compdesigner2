@@ -48,27 +48,34 @@ export default function Main() {
     }
 
 
-    const stylize = () => {
-        selectedItem.styles.width = '300px'
+    const stylize = (styles) => {
+        Object.assign(selectedItem.styles, styles)
+        setSelectedItem({ ...selectedItem })
         setAppInfo({ ...appInfo })
     }
 
+    const select = (item) => {
+        setSelectedItem(item)
+    }
 
     return (
         <Col lg={12} style={Styles.container}>
-            <Col lg={4} style={Styles.Preview} onDoubleClick={(e) => { handleDoubleClick(e) }} >
+
+            <Col lg={4} style={{ ...Styles.Preview, ...Content.colCentrify }} onDoubleClick={(e) => { handleDoubleClick(e) }} >
                 {appInfo.design.map((Item, index) => {
                     return (
-                        <Item.Core styles={Item.styles} onClick={() => { setSelectedItem(Item) }}>
+                        <Item.Core key={Math.random()} styles={Item.styles} onClick={() => { select(Item) }}>
                             {Item.children && Item.children.map((NestedItem, nestedIndex) => {
                                 return (
-                                    <NestedItem.Core styles={NestedItem.styles} onClick={() => { setSelectedItem(NestedItem) }}>
+                                    <NestedItem.Core styles={NestedItem.styles} onClick={() => {
+                                        select(`nested1:click : ${JSON.stringify(NestedItem)}`)
+                                    }}>
                                         {NestedItem.children && NestedItem.children.map((NestedItem2, nestedIndex2) => {
                                             return (
-                                                <NestedItem2.Core styles={NestedItem2.styles} onClick={() => { setSelectedItem(NestedItem2) }}>
+                                                <NestedItem2.Core styles={NestedItem2.styles} onClick={() => { select(NestedItem2) }}>
                                                     {NestedItem2 && NestedItem2.children && NestedItem2.children.map((NestedItem3, nestedIndex3) => {
                                                         return (
-                                                            <NestedItem3.Core styles={NestedItem3.styles} onClick={() => { setSelectedItem(NestedItem3) }}>
+                                                            <NestedItem3.Core styles={NestedItem3.styles} onClick={() => { select(NestedItem3) }}>
 
 
                                                             </NestedItem3.Core>

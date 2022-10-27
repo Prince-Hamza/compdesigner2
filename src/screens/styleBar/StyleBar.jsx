@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { useContext } from 'react'
 import { AppContext } from '../../Context'
@@ -7,14 +7,16 @@ import { Content } from '../../styles/styles'
 export default function StyleBar({ stylize }) {
 
     const { appInfo, setAppInfo } = useContext(AppContext)
+    const [style, setStyle] = useState({})
 
     const onFile = (filesArray) => {
 
     }
 
 
-    const onWidth = (width) => {
-        stylize()        
+    const updateStyle = (attrib, value) => {
+        style[attrib] = value
+        stylize(style)
     }
 
     return (
@@ -27,15 +29,14 @@ export default function StyleBar({ stylize }) {
             <br />
             <br />
 
-
             <Row>
                 <div style={Styles.rowItem} > width </div>
-                <input style={Styles.rowItem} type="number" onChange={(e) => { onWidth(e.target.value) }} />
+                <input style={Styles.rowItem} type="number" onChange={(e) => { updateStyle('width', e.target.value + 'px') }} />
             </Row>
 
             <Row>
                 <div style={Styles.rowItem} > height </div>
-                <input style={Styles.rowItem} type="number" />
+                <input style={Styles.rowItem} type="number" onChange={(e) => { updateStyle('height', e.target.value + 'px') }} />
             </Row>
 
 
